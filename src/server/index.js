@@ -1,33 +1,21 @@
-var fs = require('fs')
-var http = require('http')
-var assets=require('./assets')
+var express=require('express')
+var app =express()
 
-var server=http.createServer(function (req, res) {
-    console.log('recibi un request'+req.url)
-    switch (req.url){
-        case '/':
-            assets.serveStatic('index.html',function(err,content){
-                res.end(content)
-1            })
-            break
-        case '/app.js':
-            assets.serveStatic('app.js',function(err,content){
-                res.end(content)
-                })
-            break
-        case '/app.css':
-            assets.serveStatic('app.css',function(err,content){
-                res.end(content)
-            })
-            break
-        default:
-            res.statusCode=404
-            res.end('Not found')
-            break
-    }
-    //res.writeHead('Content-Type','text/plain')
-    //res.end('hola')
+//sirve para ejecutar middelwares
+//cada que haya un request este resuelve si esta pidiendo un archivo estatico y va y lo busca segun la url
+//y va enviar el response y no procesa el resto de los end points
+app.use(express.static('public'))
+
+
+app.get('/votes', function (req,res) {
+       res.json([])
 })
-server.listen(3000, function () {
- console.log("server corriendo puerto 3000")
+
+app.post('/votes/:id', function (req,res) {
+
+})
+
+
+app.listen(3000, function () {
+ console.log("server iniciado con express en el  puerto 3000")
 })
