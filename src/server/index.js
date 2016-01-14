@@ -5,6 +5,11 @@ const app =express()
 //import api from  'src/server/api'
 var api =require('src/server/api')
 
+
+
+var mongoose =require('mongoose')
+mongoose.connect('mongodb://localhost/tvify')
+
 //sirve para ejecutar middelwares
 //cada que haya un request este resuelve si esta pidiendo un archivo estatico y va y lo busca segun la url
 //y va enviar el response y no procesa el resto de los end points

@@ -8,6 +8,7 @@
     "express": "^4.13.3",
     "google-libphonenumber": "^1.0.10",
     "jquery": "^2.1.4",
+    "mongoose": "^4.3.5",
     "page": "^1.6.4",
     "qs": "^6.0.0"
   },
