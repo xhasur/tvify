@@ -26,15 +26,20 @@ function readFileText(name,callback){
 //PATRON publisher and suscriber
 
 
-
+//clase constructor
 function TextReader(name){
     EventEmitter.call(this)   //llamar al constructor de EventEmitter y la paso la clase para que se incilaize
     this.name=name
 }
 
+//herencia
+
 //copiar las propiedades a textReader las propiedades de EventEmitter una de ellas es emit
 inherits(TextReader,EventEmitter)
 
+
+
+///metodo
 TextReader.prototype.read= function () {
     var self= this
     readFileText(this.name, function (content) {
